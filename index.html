@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Surprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="sounds/kadhaipoma.mp3" type="audio/mpeg">
+
+  </audio>
+
+  <div class="app">
+    <!-- Screen 1 -->
+    <section id="screen1" class="screen active">
+      <div class="card s1" aria-label="Screen 1">
+        <div class="title-row">
+          <div class="gift" id="leftGift" role="button" title="Click to start">🎁</div>
+          <div class="heading"><span>Happy Birthday Surprise</span></div>
+          <div class="gift" id="rightGift" role="button" title="Click to start">🎁</div>
+        </div>
+        <div class="sub muted">Click any gift to begin the surprise ✨</div>
+      </div>
+      <div class="nav-hint">Tap a gift →</div>
+    </section>
+
+    <!-- Screen 2 -->
+    <section id="screen2" class="screen">
+      <div class="card s2" aria-label="Screen 2">
+        <div class="name-card">
+          <div style="font-size:20px;font-weight:800;color:#5b3b4a">Enter your beautiful name</div>
+          <input id="nameInput" class="name-input" placeholder="Enter your beautiful name" type="text" maxlength="36" />
+          <div style="display:flex;gap:8px">
+            <button id="toS3" class="btn">Continue</button>
+            <button id="skipName" class="btn"
+              style="background:linear-gradient(90deg,#A0E3FF,#A1FFD6);color:#2b2b2b">Surprise me</button>
+          </div>
+        </div>
+        <div class="balloon-wrap" id="balloons">
+          <div class="balloon"
+            style="left:6%; background:linear-gradient(180deg,#ff9fb7,#ff5a91); animation-duration:9s"></div>
+          <div class="balloon"
+            style="left:22%; background:linear-gradient(180deg,#ffd36e,#ff9f4d); animation-duration:11s"></div>
+          <div class="balloon"
+            style="left:40%; background:linear-gradient(180deg,#c8a2ff,#a77bff); animation-duration:10s"></div>
+          <div class="balloon"
+            style="left:60%; background:linear-gradient(180deg,#84f2c4,#22d19f); animation-duration:12s"></div>
+          <div class="balloon"
+            style="left:78%; background:linear-gradient(180deg,#ffef9a,#ffcc33); animation-duration:8.8s"></div>
+        </div>
+        <div class="fireworks" id="fireworks"></div>
+      </div>
+      <div class="nav-hint">Fill a name → Click continue</div>
+    </section>
+
+    <!-- Screen 3 -->
+    <section id="screen3" class="screen">
+      <div class="card s3" aria-label="Screen 3">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="hint">A little hint... someone planned something special! 🎉</div>
+          <div class="emoji-row" style="margin-top:10px">
+            <div class="hint-emoji" data-to="4">🎂</div>
+            <div class="hint-emoji" data-to="4">🎈</div>
+            <div class="hint-emoji" data-to="4">🎉</div>
+            <div class="hint-emoji" data-to="4">💖</div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-hint">Click any emoji →</div>
+    </section>
+
+    <!-- Screen 4 -->
+    <section id="screen4" class="screen">
+      <div class="card s4" aria-label="Screen 4">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="hidden-note muted">Two hidden memories — flip them to reveal ✨</div>
+          <div class="flip-area">
+            <div class="mini-flip" id="mini1" title="Click to flip">
+              <div class="flip-inner">
+                <div class="side front">🌸 Quote 1</div>
+                <div class="side back"><img src="images/frds.jpg" alt="Screen 4 Image 1"></div>
+              </div>
+            </div>
+            <div class="mini-flip" id="mini2" title="Click to flip">
+              <div class="flip-inner">
+                <div class="side front">🌈 Quote 2</div>
+                <div class="side back"><img src="images/fam.jpg" alt="Screen 4 Image 2"></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+              <div class="muted" style="font-weight:800">Click any to continue</div>
+              <button id="toS5" class="btn" style="margin-top:6px">Go to final</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-hint">Flip both → or click Go to final</div>
+    </section>
+
+    <!-- Screen 5 -->
+    <section id="screen5" class="screen">
+      <div class="card s5" aria-label="Screen 5">
+        <div id="giftBox" class="gift-box" title="Open Gift">
+          <img src="images/gift.png" alt="Gift Box">
+        </div>
+        <div class="stage">
+          <!-- Left Column -->
+          <div class="photo-col">
+            <div class="scrap">
+              <div class="flip-card r1" data-index="1">
+                <div class="flip-card-inner">
+                  <div class="face front">✨ Wish 1</div>
+                  <div class="face back"><img src="images/omg.jpg"></div>
+                </div>
+              </div>
+              <div class="flip-card r2" data-index="2">
+                <div class="flip-card-inner">
+                  <div class="face front">💕 Memory 2</div>
+                  <div class="face back"><img src="images/pongal.jpg"></div>
+                </div>
+              </div>
+              <div class="flip-card r3" data-index="3">
+                <div class="flip-card-inner">
+                  <div class="face front">🎶 Song 3</div>
+                  <div class="face back"><img src="images/god.jpg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Center Greeting -->
+          <div class="center-card" id="finalNote">
+            <div style="max-width:420px">
+              <div id="greetLine" style="font-size:22px;margin-bottom:12px">Hey there!</div>
+              <div style="font-size:15px;color:#6b4a5a;font-weight:700">
+                பிறந்த நாள் வாழ்த்துகள் தோழியே!
+                உங்கள் சிரிப்பு எப்போதும் பிரகாசிக்கட்டும்.
+                இதயம் மகிழ்ச்சியால் நிரம்பி வாழ்க!
+                உங்கள் வாழ்க்கை இனிய நினைவுகளால் சூழப்பட்டிருக்கட்டும்.
+                நண்பர்கள் மற்றும் குடும்பத்துடன் இனிதாக கொண்டாடுங்கள்! Once again Happy Birthday Friend..<br><strong>டீட் முக்கியம் எருமா! 🍰🍕</strong>
+              </div></br>
+            </div>
+          </div>
+          <!-- Right Column -->
+          <div class="photo-col">
+            <div class="scrap">
+              <div class="flip-card r4" data-index="4">
+                <div class="flip-card-inner">
+                  <div class="face front">🌟 Dream 4</div>
+                  <div class="face back"><img src="images/hide.jpg"></div>
+                </div>
+              </div>
+              <div class="flip-card r5" data-index="5">
+                <div class="flip-card-inner">
+                  <div class="face front">🍰 Cake 5</div>
+                  <div class="face back"><img src="images/10.jpg"></div>
+                </div>
+              </div>
+              <div class="flip-card r6" data-index="6">
+                <div class="flip-card-inner">
+                  <div class="face front">👥 Friends 6</div>
+                  <div class="face back"><img src="images/enjoy.jpg"></div>
+                </div>
+              </div>
+              <div class="flip-card r7" data-index="7">
+                <div class="flip-card-inner">
+                  <div class="face front">💌 Message 7</div>
+                  <div class="face back"><img src="images/passion.jpg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add at the bottom of Screen 5 -->
+      <button id="nextToScreen6" class="btn next-btn">Next ➡</button>
+
+      <div class="nav-hint">Click photos to flip •</div>
+
+    </section>
+
+    <!-- Screen 6 -->
+    <section id="screen6" class="screen">
+      <div class="card s6" aria-label="Screen 6">
+        <div class="s6-content">
+
+          <!-- Collage Box -->
+          <div class="collage-box">
+            <img src="images/college.png" alt="Happy Birthday Collage" class="collage-img" id="collegeImg">
+
+            <!-- Download Button -->
+            <a href="images/college.png" download="Birthday_Collage.png" class="btn download-btn">⬇ Download Photo</a>
+
+            <!-- Final Message inside the box -->
+            <div class="collage-message">
+              🎉 Hope you loved the surprise! 🎂<br>
+              Stay awesome and keep smiling! 😊
+            </div>
+          </div>
+
+          <!-- Replay Button -->
+          <button id="replayBtn" class="btn s6-btn">Replay Surprise</button>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const bgMusic = document.getElementById("bgMusic");
+    bgMusic.volume = 1.0; // set softer volume so it's pleasant
+
+    document.querySelectorAll('#leftGift,#rightGift').forEach(el => {
+      el.addEventListener('click', () => {
+        document.getElementById('screen1').classList.remove('active');
+        document.getElementById('screen2').classList.add('active');
+
+        // 🎶 Play music on first click
+        if (bgMusic.paused) {
+          bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+        }
+      });
+    });
+
+    // Screen navigation (simplified)
+    document.querySelectorAll('#leftGift,#rightGift').forEach(el => {
+      el.addEventListener('click', () => { document.getElementById('screen1').classList.remove('active'); document.getElementById('screen2').classList.add('active'); })
+    });
+    document.getElementById('toS3').addEventListener('click', () => { document.getElementById('screen2').classList.remove('active'); document.getElementById('screen3').classList.add('active'); });
+    document.getElementById('skipName').addEventListener('click', () => { document.getElementById('screen2').classList.remove('active'); document.getElementById('screen3').classList.add('active'); });
+    document.querySelectorAll('.hint-emoji').forEach(emoji => {
+      emoji.addEventListener('click', () => { document.getElementById('screen3').classList.remove('active'); document.getElementById('screen4').classList.add('active'); })
+    });
+    document.getElementById('toS5').addEventListener('click', () => { document.getElementById('screen4').classList.remove('active'); document.getElementById('screen5').classList.add('active'); });
+
+    // Screen 4 flip cards
+    document.querySelectorAll('.mini-flip').forEach(card => {
+      card.addEventListener('click', () => { card.classList.toggle('flipped'); })
+    });
+
+    // Screen 5 gift + confetti + staggered reveal
+    const giftBox = document.getElementById('giftBox');
+    const stage = document.querySelector('#screen5 .stage');
+    const flipCards = document.querySelectorAll('#screen5 .flip-card');
+    const popSound = new Audio('sounds/pop.mp3'); // Add your pop.mp3 in sounds/
+
+    stage.classList.remove('show');
+    flipCards.forEach(fc => fc.classList.remove('show'));
+
+    giftBox.addEventListener('click', () => {
+      popSound.play();
+      giftBox.classList.add('burst');
+
+      confetti({ particleCount: 180, spread: 100, origin: { y: 0.6 } });
+
+      setTimeout(() => {
+        giftBox.style.display = 'none';
+        stage.classList.add('show');
+        flipCards.forEach((card, i) => { setTimeout(() => { card.classList.add('show'); }, i * 300); });
+      }, 1000);
+    });
+
+    // Flip stage cards on click
+    flipCards.forEach(card => {
+      card.addEventListener('click', () => { card.classList.toggle('flipped'); })
+    });
+
+    document.getElementById('nextToScreen6').addEventListener('click', () => {
+      document.getElementById('screen5').classList.remove('active');
+      document.getElementById('screen6').classList.add('active');
+    });
+
+    document.getElementById('replayBtn').addEventListener('click', () => {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen1').classList.add('active');
+
+      // Reset
+      giftBox.style.display = 'block';
+      giftBox.classList.remove('burst');
+      stage.classList.remove('show');
+      flipCards.forEach(fc => fc.classList.remove('show', 'flipped'));
+    });
+
+
+  </script>
+</body>
+
+</html>
